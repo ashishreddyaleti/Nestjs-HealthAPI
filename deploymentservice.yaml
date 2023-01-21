@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: reddyashishaleti/nestjs:latest
+        image: reddyashishaleti/nestjs1:latest
         ports:
         - containerPort: 3000
         
