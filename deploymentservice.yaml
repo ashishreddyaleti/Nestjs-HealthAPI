@@ -30,7 +30,6 @@ metadata:
 spec:
   selector:
     app: nodeapp 
-  type: ClusterIP
   ports:
   - protocol: TCP
     port: 5000
