@@ -37,4 +37,24 @@ spec:
     targetPort: 3000
     nodePort: 31110
 
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  name: nodeapp-service-igr
+  namespace: default
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`api.ashish.net`)
+    services:
+    - kind: Service
+      name: nodeapp-service 
+      namespace: default
+      port: 80
 
