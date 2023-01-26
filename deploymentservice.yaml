@@ -50,7 +50,7 @@ spec:
   - web
   routes:
   - kind: Rule
-    match: Host(`api.ashish.net`)
+    match: Host(`api.ashish.net`) && Pathprefix ('/status')
     services:
     - kind: Service
       name: nodeapp-service 
