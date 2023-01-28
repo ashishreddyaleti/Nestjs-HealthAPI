@@ -56,4 +56,6 @@ spec:
       name: nodeapp-service 
       namespace: default
       port: 80
+  tls:
+    certResolver: pebble
 
