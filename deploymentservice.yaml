@@ -42,12 +42,12 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   labels:
-    app.kubernetes.io/managed-by: Helm
+    app: nodejs-health
   name: nodeapp-service-igr
   namespace: default
 spec:
   entryPoints:
-  - web
+  - websecure
   routes:
   - kind: Rule
     match: Host(`api.ashish.net`)
