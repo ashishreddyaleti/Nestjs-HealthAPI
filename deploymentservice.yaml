@@ -52,6 +52,5 @@ spec:
     services:
     - name: nestjs
       port: 80
-~
 
 
