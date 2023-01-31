@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment
+  name: nestjs
   labels:
     app: nodeapp
 spec:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: reddyashishaleti/nestjs3:latest
+        image: reddyashishaleti/nestjs4:latest
         ports:
         - containerPort: 80
         
@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeapp-service
+  name: nestjs
 spec:
   selector:
     app: nodeapp 
@@ -41,21 +41,17 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  labels:
-    app: nodejs-health
-  name: nodeapp-service-igr
+  name: nestjs
   namespace: default
 spec:
   entryPoints:
-  - websecure
+    - web
   routes:
-  - kind: Rule
-    match: Host(`api.ashish.net`)
+  - match: Host(`api.ashish.net`) && PathPrefix(`/notls`)
+    kind: Rule
     services:
-    - kind: Service
-      name: nodeapp-service 
-      namespace: default
+    - name: nestjs
       port: 80
-  tls:
-    certResolver: pebble
+~
+
 
