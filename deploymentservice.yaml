@@ -47,7 +47,7 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`api.ashish.net`)
+  - match: Host(`api.ashish.net`) && PathPrefix(`/devops`)
     kind: Rule
     services:
     - name: nestjs
