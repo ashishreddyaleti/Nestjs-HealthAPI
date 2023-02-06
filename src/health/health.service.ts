@@ -3,6 +3,6 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getHello(): string {
-    return '200 OK';
+    return '$HOSTNAME Healthy and 200 OK';
   }
 }
